@@ -19,20 +19,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 
 # Default AOSP sounds
-ifeq ($(SSOS_BUILD),)
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
-else
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
-endif
+$(call inherit-product-if-exists, frameworks/base/data/sounds/GoogleAudio.mk)
 
 # Additional settings used in all AOSP builds
 ifeq ($(SSOS_BUILD),)
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone?=Ring_Synth_04.ogg \
-    ro.config.notification_sound?=pixiedust.ogg \
-
-endif
-PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.ringtone?=Your_new_adventure.ogg \
+    ro.config.notification_sound?=Eureka.ogg \
     ro.com.android.dataroaming?=true \
 
 # More AOSP packages

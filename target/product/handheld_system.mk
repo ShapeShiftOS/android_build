@@ -84,9 +84,5 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.carrier?=unknown \
-
-ifeq ($(SSOS_BUILD),)
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.config.notification_sound?=OnTheHunt.ogg \
-    ro.config.alarm_alert?=Alarm_Classic.ogg
-endif
+    ro.config.notification_sound?=Eureka.ogg \
+    ro.config.alarm_alert?=Fresh_start.ogg
