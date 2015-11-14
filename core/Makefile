@@ -1923,9 +1923,10 @@ define build-recoveryramdisk
 endef
 else
 define build-recoveryramdisk
+  @echo ----- Generating Changelog ------
   $(hide) ./vendor/aosp/tools/changelog.sh
-  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(CUSTOM_VERSION)-Changelog.txt
-  @echo ----- Making recovery image ------
+  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(PLATFORM_VERSION)-$(TARGET_PRODUCT).txt
+  @echo -e ----- Making recovery ramdisk ------
   $(hide) mkdir -p $(TARGET_RECOVERY_OUT)
   $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/sdcard $(TARGET_RECOVERY_ROOT_OUT)/tmp
   # Copying baseline ramdisk...
