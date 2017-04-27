@@ -122,6 +122,13 @@ dalvik\..*
 libcore\..*
 android\..*
 com\.android\..*
+
+# CAF
+org\.codeaurora\..*
+
+# ssos
+com\.ssos\..*
+
 ###################################################
 # android.test.base.jar
 junit\.extensions
