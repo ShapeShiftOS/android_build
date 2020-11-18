@@ -1241,6 +1241,12 @@ ifneq ($(SSOS_BUILD),)
 include vendor/ssos/config/BoardConfigSsos.mk
 endif
 
+ifneq ($(SSOS_BUILD),)
+## We need to be sure the global selinux policies are included
+## last, to avoid accidental resetting by device configs
+$(eval include device/ssos/sepolicy/common/sepolicy.mk)
+endif
+
 ifeq ($(CALLED_FROM_SETUP),true)
 include $(BUILD_SYSTEM)/ninja_config.mk
 include $(BUILD_SYSTEM)/soong_config.mk
@@ -1250,12 +1256,6 @@ endif
 -include external/ltp/android/ltp_package_list.mk
 DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
 .KATI_READONLY := DEFAULT_DATA_OUT_MODULES
-
-ifneq ($(SSOS_BUILD),)
-## We need to be sure the global selinux policies are included
-## last, to avoid accidental resetting by device configs
-$(eval include device/ssos/sepolicy/common/sepolicy.mk)
-endif
 
 include $(BUILD_SYSTEM)/dumpvar.mk
 
