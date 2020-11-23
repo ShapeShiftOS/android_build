@@ -19,12 +19,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 
 # Default AOSP sounds
-$(call inherit-product-if-exists, vendor/ssos/config/pixel2-audio_prebuilt.mk)
+#$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
 
 # Additional settings used in all AOSP builds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=The_big_adventure.ogg \
-    ro.config.notification_sound=Popcorn.ogg \
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    ro.config.ringtone=Ring_Synth_04.ogg \
+#    ro.config.notification_sound=pixiedust.ogg
 
 # More AOSP packages
 PRODUCT_PACKAGES += \
