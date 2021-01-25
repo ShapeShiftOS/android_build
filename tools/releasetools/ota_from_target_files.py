@@ -826,7 +826,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   build_id = target_info.GetBuildProp("ro.build.id")
   build_date = target_info.GetBuildProp("ro.build.date")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
-  device = target_info.GetBuildProp("ro.product.device")
+  device = target_info.GetBuildProp("ro.build.product")
 
   script.Print("------------------------------------------");
   script.Print(" Android version: %s"%(android_version));
